@@ -1,0 +1,7 @@
+Attribute VB_Name = "Module5"
+Sub RunAllMacros()
+    BrisanjeDuplikataBoldiranje
+    BlankLine
+    klikShiftBlockUp
+    Finale
+End Sub
