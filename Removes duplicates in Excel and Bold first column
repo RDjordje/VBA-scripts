@@ -1,0 +1,53 @@
+Attribute VB_Name = "Module1"
+Sub BrisanjeDuplikataBoldiranje()
+Attribute BrisanjeDuplikataBoldiranje.VB_ProcData.VB_Invoke_Func = " \n14"
+'
+' BrisanjeDuplikataBoldiranje Macro
+'
+
+'
+    Range("M1").Select
+    ActiveCell.FormulaR1C1 = "a"
+    Range("N1").Select
+    ActiveCell.FormulaR1C1 = "b"
+    Range("M2").Select
+    Selection.NumberFormat = "#,##0.00"
+    ActiveCell.FormulaR1C1 = "1"
+    Columns("A:A").Select
+    Selection.Font.Bold = True
+    Columns("M:M").Select
+    Selection.NumberFormat = "General"
+    Range("M3").Select
+    ActiveCell.FormulaR1C1 = "=RC[-12]=R[-1]C[-12]"
+    Columns("M:M").Select
+    Selection.Replace What:="1", Replacement:="FALSE", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Range("M3").Select
+    Selection.AutoFill Destination:=Range("M3:M6928"), Type:=xlFillDefault
+    Range("M3:M6928").Select
+    ActiveWindow.ScrollRow = 6873
+    ActiveWindow.ScrollRow = 6698
+    ActiveWindow.ScrollRow = 6624
+    ActiveWindow.ScrollRow = 6531
+    ActiveWindow.ScrollRow = 4638
+    ActiveWindow.ScrollRow = 4388
+    ActiveWindow.ScrollRow = 1571
+    ActiveWindow.ScrollRow = 1257
+    ActiveWindow.ScrollRow = 324
+    ActiveWindow.ScrollRow = 130
+    ActiveWindow.ScrollRow = 1
+    Range("N2").Select
+    ActiveCell.FormulaR1C1 = "=ISTEXT(RC[-13])"
+    Range("N2").Select
+    Selection.AutoFill Destination:=Range("N2:N6928")
+    Range("N2:N6928").Select
+    Range("M1").Select
+    Selection.AutoFilter
+    ActiveSheet.Range("$A$1:$N$6928").AutoFilter Field:=13, Criteria1:="TRUE"
+    Columns("A:A").Select
+    Selection.ClearContents
+    Selection.AutoFilter
+    Columns("M:M").Select
+    Selection.Delete Shift:=xlToLeft
+End Sub
