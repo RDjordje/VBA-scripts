@@ -1,0 +1,55 @@
+Attribute VB_Name = "Module1"
+Sub PrviKorak()
+Attribute PrviKorak.VB_ProcData.VB_Invoke_Func = " \n14"
+'
+' PrviKorak Macro
+'
+
+'
+    Columns("P:P").Select
+    Selection.Delete Shift:=xlToLeft
+    Columns("O:O").Select
+    Selection.Delete Shift:=xlToLeft
+    Range("M:M,L:L,K:K").Select
+    Range("K1").Activate
+    Selection.NumberFormat = "#,##0.00"
+    Range("J:J,I:I,H:H").Select
+    Range("H1").Activate
+    Selection.NumberFormat = "m/d/yyyy"
+    Columns("G:G").EntireColumn.AutoFit
+    Range("G9").Select
+    ActiveCell.FormulaR1C1 = _
+        "Предузеће за телекомуникације „Телеком Србија акционарско друштво Београд"
+    Columns("G:G").Select
+    Selection.Replace What:="„", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Range("G:G,B:B,C:C,D:D").Select
+    Range("D1").Activate
+    Selection.Replace What:=";;", Replacement:="", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Selection.Replace What:=",", Replacement:=".", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Selection.Replace What:=";", Replacement:=",", LookAt:=xlPart, _
+        SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+        ReplaceFormat:=False
+    Columns("F:F").Select
+    Selection.NumberFormat = "0"
+    With Selection
+        .HorizontalAlignment = xlLeft
+        .VerticalAlignment = xlBottom
+        .WrapText = False
+        .Orientation = 0
+        .AddIndent = False
+        .IndentLevel = 0
+        .ShrinkToFit = False
+        .ReadingOrder = xlContext
+        .MergeCells = False
+    End With
+    Columns("E:E").Select
+    Selection.NumberFormat = "@"
+    Cells.Select
+    Selection.RowHeight = 15
+End Sub
