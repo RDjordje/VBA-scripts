@@ -1,0 +1,20 @@
+Attribute VB_Name = "Module2"
+Sub BlankLine()
+
+    Dim Rng As Range
+    Dim WorkRng As Range
+    On Error Resume Next
+    xTitleId = "KutoolsforExcel"
+    Set WorkRng = Application.Selection
+    Set WorkRng = Application.InputBox("Range", xTitleId, WorkRng.Address, Type:=8)
+    Set WorkRng = WorkRng.Columns(1)
+    xLastRow = WorkRng.Rows.Count
+    Application.ScreenUpdating = False
+    For xRowIndex = xLastRow To 1 Step -1
+        Set Rng = WorkRng.Range("A" & xRowIndex)
+        If Rng.Value = True Then
+            Rng.Offset(0, 1).EntireRow.Insert Shift:=xlUp
+        End If
+    Next
+    Application.ScreenUpdating = True
+End Sub
