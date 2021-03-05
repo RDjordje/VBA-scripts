@@ -1,0 +1,23 @@
+Attribute VB_Name = "Module3"
+Sub Finale()
+Attribute Finale.VB_ProcData.VB_Invoke_Func = " \n14"
+'
+' Finale Macro
+'
+
+'
+    Columns("M:M").Select
+    Selection.Delete Shift:=xlToLeft
+    Rows("2:2").EntireRow.AutoFit
+    Rows("2:2").Select
+    With Selection.Interior
+        .Pattern = xlNone
+        .TintAndShade = 0
+        .PatternTintAndShade = 0
+    End With
+    Range("C2").Select
+    Columns("A:A").Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Range(Selection, Selection.End(xlToRight)).Select
+    Columns("A:L").EntireColumn.AutoFit
+End Sub
